@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnnonceService } from '../annonce.service';
 
 @Component({
   selector: 'app-annonce',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnnonceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: AnnonceService) { }
 
   ngOnInit() {
+    
   }
 
 }
