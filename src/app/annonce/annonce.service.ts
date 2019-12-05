@@ -15,29 +15,31 @@ export class AnnonceService {
   constructor() { }
 
   add(annonce: AnnonceItem, type: AnnonceType): void {
-    if(type === AnnonceType.ALIMENTAIRE)
+    if (type === AnnonceType.ALIMENTAIRE) {
       this.listAlimentaires.push(annonce);
-    else if(type === AnnonceType.COLOCATAIRE)
+    } else if (type === AnnonceType.COLOCATAIRE) {
       this.listColocataires.push(annonce);
-    else if(type === AnnonceType.VESTIMENTAIRE)
+    } else if (type === AnnonceType.VESTIMENTAIRE) {
       this.listVestimentaires.push(annonce);
-    else if(type === AnnonceType.PRODUIT)
+    } else if (type === AnnonceType.PRODUIT) {
       this.listProduits.push(annonce);
-    else
+    } else {
       return;
+    }
   }
 
   get(id: number, type: AnnonceType): AnnonceItem {
-    if(type === AnnonceType.ALIMENTAIRE)
+    if (type === AnnonceType.ALIMENTAIRE) {
       return this.getAlimentaires(id);
-    else if(type === AnnonceType.COLOCATAIRE)
+    } else if (type === AnnonceType.COLOCATAIRE) {
       return this.getColocataires(id);
-    else if(type === AnnonceType.VESTIMENTAIRE)
+    } else if (type === AnnonceType.VESTIMENTAIRE) {
       return this.getVestimentaires(id);
-    else if(type === AnnonceType.PRODUIT)
+    } else if (type === AnnonceType.PRODUIT) {
       return this.getProduits(id);
-    else
+    } else {
       return null;
+    }
   }
 
   getAlimentaires(id: number): AnnonceItem {
