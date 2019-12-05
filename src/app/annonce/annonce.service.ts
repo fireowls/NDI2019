@@ -88,4 +88,10 @@ export class AnnonceService {
     else
       return null;
   }
+
+  getMoyenne(annonce: AnnonceItem): number {
+    let somme: number = 0;
+    annonce.note.forEach(n => {somme += n;});
+    return somme / annonce.note.length;
+  }
 }
