@@ -11,7 +11,6 @@ export class AnnonceComponent implements OnInit {
   constructor(private service: AnnonceService) { }
 
   ngOnInit() {
-    
   }
 
 }
