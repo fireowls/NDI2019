@@ -1,4 +1,4 @@
-export enum AnnonceType{
+export enum AnnonceType {
     ALIMENTAIRE,
     COLOCATAIRE,
     VESTIMENTAIRE,
