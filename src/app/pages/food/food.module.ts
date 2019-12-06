@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FoodRoutingModule } from './food-routing.module';
 import { FoodPageComponent } from './food-page/food-page.component';
 import { AnnonceModule } from 'src/app/annonce/annonce.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { AnnonceModule } from 'src/app/annonce/annonce.module';
     CommonModule,
     AnnonceModule,
     FoodRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FoodModule { }
