@@ -12,7 +12,7 @@ export class GameComponent implements OnInit {
   player : Player;
   enemies : Enemy[];
   ctx : CanvasRenderingContext2D;
-  dead : boolean = false;
+  dead : boolean = true;
   constructor() {
   }
 
@@ -75,7 +75,7 @@ export class GameComponent implements OnInit {
   isCollision(){
     this.enemies.forEach(e => {
       let p = this.player;
-      if(p.x <= p.x + p.width && p.x >= p.x || p.y <= p.y + p.height && p.y >= p.y) return true;
+      if(p.x <= e.x + e.width && e.x >= e.x || e.y <= e.y + e.height && e.y >= e.y) return true;
     });
     return false;
   }
