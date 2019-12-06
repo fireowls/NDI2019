@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AnnonceService } from '../annonce.service';
+import { AnnonceService } from '../services/annonce.service';
 import { AnnonceType } from '../models/annonce-type.model';
 import { AnnonceItem } from '../models/annonce-item.model';
 
