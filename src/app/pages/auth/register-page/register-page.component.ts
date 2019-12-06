@@ -16,7 +16,6 @@ export class RegisterPageComponent implements OnInit {
   constructor(private formBuilder:FormBuilder, private authService:AuthService) { }
 
   ngOnInit() {
-    console.log("init register page");
     this.initForm();
   }
 
@@ -36,7 +35,6 @@ export class RegisterPageComponent implements OnInit {
 
 
   onSubmit(){
-    console.log("ENTER ON SUBMIT");
     const email = this.registerForm.get('email').value;
     const password = this.registerForm.get('password').value;
     const auth: Auth = {
