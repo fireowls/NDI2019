@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { GameComponent } from './game/game.component';
 
 
 
 @NgModule({
-  declarations: [NotFoundComponent],
+  declarations: [
+    GameComponent
+  ],
   imports: [
     CommonModule
-  ],
-  exports: [
-    NotFoundComponent
   ]
 })
 export class NotFoundModule { }

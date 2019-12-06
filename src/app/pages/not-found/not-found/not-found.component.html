@@ -1,6 +1,7 @@
 <div class="container">
 
 <div class="center">
+<<<<<<< HEAD
   <h1 *ngIf="nbr >= 0" (click)="decremente()" id="error">{{get404()}}</h1>
   <h1 *ngIf="nbr < 0">
     <a href="https://www.youtube.com/watch?v=BydSwOPuhF0">Félicitations, cliquez ici !</a>
@@ -20,3 +21,17 @@
 <iframe id="faire_courir" src="" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nintendo-mario-bros-i2rNOf3b7vJgk">via GIPHY</a></p>
 -->
  
+=======
+    <h1 (click)="decremente()" id="error">{{nbr}}</h1>
+    <app-game></app-game>
+    <h2>{{lastUpdate | async}}</h2>
+    <h1>Il y a un petit probleme non ?</h1>
+</div>
+
+<img src="https://giphy.com/gifs/i2rNOf3b7vJgk/html5 " alt="un carre" id="faire_courir" [ngStyle]="{left: getPositionLeft()}">
+
+<!--
+    "../../../../../assets/carre.jpg"
+<iframe id="faire_courir" src="" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/nintendo-mario-bros-i2rNOf3b7vJgk">via GIPHY</a></p>
+-->
+>>>>>>> 84ae515f121bccc72243b976aaec092cbe9f9432
