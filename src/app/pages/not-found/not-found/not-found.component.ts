@@ -10,7 +10,6 @@ import { timer } from 'rxjs';
 })
 export class NotFoundComponent implements OnInit {
   nbr = 404;
-  position = 0;
   constructor() {
 
   }
@@ -21,11 +20,7 @@ export class NotFoundComponent implements OnInit {
     return this.nbr;
   }
   decremente(){
-    this.nbr-=50;
+    this.nbr-=1;
   }
 
-
-  getPositionLeft(){
-    return this.position+'px';
-  }
 }
