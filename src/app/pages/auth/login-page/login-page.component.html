@@ -13,6 +13,6 @@
         <div class="form-group">
             <button class="btn btn-primary btn-block" type="submit" [disabled]="loginForm.invalid">Log In</button>
         </div>
-        <a class="forgot" href="#">Forgot your email or password?</a>
+        <a class="forgot" [routerLink]="['/register']" >Je n'ai pas encore de compte</a>
     </form>
 </div>
