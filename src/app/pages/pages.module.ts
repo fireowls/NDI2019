@@ -5,6 +5,7 @@ import { NotFoundModule } from './not-found/not-found.module';
 import { ProfilModule } from './profil/profil.module';
 import { PagesRoutingModules } from './pages-routing.module';
 import { FoodModule } from './food/food.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 const modules = [
@@ -17,7 +18,8 @@ const modules = [
 ];
 
 @NgModule({
+  declarations: [NavbarComponent],
   imports: [ modules ],
-  exports: [ modules ]
+  exports: [ modules, NavbarComponent ]
 })
 export class PagesModule { }
