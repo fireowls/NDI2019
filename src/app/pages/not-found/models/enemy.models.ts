@@ -14,7 +14,7 @@ export class Enemy{
     }
 
     render(ctx : CanvasRenderingContext2D){
-        ctx.fillStyle = 'yellow';
+        ctx.fillStyle = 'red';
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }

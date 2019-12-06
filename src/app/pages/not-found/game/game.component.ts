@@ -25,7 +25,7 @@ export class GameComponent implements OnInit {
       if(!this.dead) this.update();
     }, 10);
     setInterval(e => {
-      if(!this.dead) this.enemies.push(new Enemy(1000, 300-50, -5));
+      if(!this.dead) this.enemies.push(new Enemy(1100, 300-50, -5));
     }, 2000);
     canvas.addEventListener('keypress', e => {
       this.keyDown(e);
@@ -39,7 +39,7 @@ export class GameComponent implements OnInit {
 
   keyDown(e){
     if(e.keyCode == 32){ //space
-      if(this.player.y == 300-50) this.player.vit = -5;
+      if(!(this.player.y < 300-this.player.height)) this.player.vit = -5;
     }
   }
 
@@ -50,15 +50,20 @@ export class GameComponent implements OnInit {
   }
 
   update(){
-    console.log(this.dead);
     this.player.y += this.player.vit;
-    this.player.y = this.constrain(this.player.y, 100, 300-50);
-    if(this.player.y == 100) this.player.vit = 5;
+    this.player.y = this.constrain(this.player.y, 0, 300-this.player.height);
+    if(this.player.y == 0) this.player.vit = 5;
     this.enemies.forEach(e => {
       e.x += e.vit;
     });
     this.dead = this.isCollision();
     this.render();
+    if(this.dead) this.gameover();
+  }
+
+  gameover(){
+    this.ctx.font = '48px serif';
+    this.ctx.fillText('Game Over', 400, 50);
   }
 
   constrain(value : number, min : number, max : number){
@@ -80,8 +85,7 @@ export class GameComponent implements OnInit {
   }
 
   render(){
-    console.log(this.player.x + ' ' + this.player.y);
-    this.ctx.fillStyle = 'blue';
+    this.ctx.fillStyle = 'black';
     this.ctx.fillRect(0, 0, 1100, 300);
     this.player.render(this.ctx);
     this.enemies.forEach(e => {

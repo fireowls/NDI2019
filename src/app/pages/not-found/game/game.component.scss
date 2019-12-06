@@ -1,6 +1,12 @@
 canvas {
     border: 1px solid black;
-    background-color: blue;
     background-size: 200px 300px;
     background-position-y: -81px;
+}
+
+#rayman {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
 }
