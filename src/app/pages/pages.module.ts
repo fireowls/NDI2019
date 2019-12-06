@@ -6,6 +6,7 @@ import { ProfilModule } from './profil/profil.module';
 import { PagesRoutingModules } from './pages-routing.module';
 import { FoodModule } from './food/food.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 const modules = [
@@ -19,7 +20,7 @@ const modules = [
 
 @NgModule({
   declarations: [NavbarComponent],
-  imports: [ modules ],
+  imports: [ modules, BrowserModule ],
   exports: [ modules, NavbarComponent ]
 })
 export class PagesModule { }

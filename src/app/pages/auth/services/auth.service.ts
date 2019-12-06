@@ -51,6 +51,11 @@ export class AuthService {
     });
   }
 
+
+  logout() {
+    this.authService.auth.signOut();
+  }
+
   setUser(user:User): Promise<void>{
     return new Promise((resolve,reject) => {
       this.firestore.collection('users').doc(user.id).set(user).then(

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -11,7 +12,7 @@ export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private formBuilder:FormBuilder,private authService:AuthService) { }
+  constructor(private formBuilder:FormBuilder,private authService:AuthService, private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -31,6 +32,7 @@ export class LoginPageComponent implements OnInit {
     this.authService.signin(email, password).then(
       () => {
         console.log("connexion reussi");
+        this.router.navigateByUrl('food')
       },
       (error) => {
         console.log("connexion echoué");
