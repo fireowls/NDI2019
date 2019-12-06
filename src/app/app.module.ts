@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NotFoundModule } from './pages/not-found/not-found.module';
 import { AppComponent } from './app.component';
 import { NotFoundModule } from './pages/not-found/not-found.module';
 import { GameComponent } from './pages/not-found/game/game.component';
@@ -11,7 +11,8 @@ import { GameComponent } from './pages/not-found/game/game.component';
     GameComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]
