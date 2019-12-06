@@ -23,4 +23,6 @@ const modules = [
   imports: [ modules, BrowserModule ],
   exports: [ modules, NavbarComponent ]
 })
-export class PagesModule { }
+export class PagesModule {
+
+}
