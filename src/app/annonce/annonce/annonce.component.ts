@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { AnnonceService } from '../services/annonce.service';
-import { AnnonceType } from '../models/annonce-type.model';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AnnonceItem } from '../models/annonce-item.model';
 
 @Component({
@@ -10,15 +8,16 @@ import { AnnonceItem } from '../models/annonce-item.model';
 })
 export class AnnonceComponent implements OnInit {
 
-  @Input() type: AnnonceType;
+  @Input() annonce: AnnonceItem;
+  @Output() AnnonceClick = new EventEmitter<AnnonceItem>();
 
-  constructor(private service: AnnonceService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  getListeAnnonce(): AnnonceItem[] {
-    return this.service.getList(this.type);
+  emit() {
+    this.AnnonceClick.emit(this.annonce);
   }
 
 }
