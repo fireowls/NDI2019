@@ -5,6 +5,7 @@ import { NotFoundModule } from './not-found/not-found.module';
 import { ProfilModule } from './profil/profil.module';
 import { PagesRoutingModules } from './pages-routing.module';
 
+
 const modules = [
   AuthModule,
   HomeModule,
