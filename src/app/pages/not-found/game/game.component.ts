@@ -9,25 +9,25 @@ import { Enemy } from '../models/enemy.models';
 })
 export class GameComponent implements OnInit {
 
-  player : Player;
-  enemies : Enemy[];
+  V1n8L4nc : Player;
+  hugoACasserLeGit : Enemy[];
   ctx : CanvasRenderingContext2D;
-  dead : boolean = false;
-  score : number = 0;
+  EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier : boolean = false;
+  CeMatinMoiEtAymericOnAEteAAuchanDeguiseEtOnADitBonjourAuPereNoel : number = 0;
   bestScore : number = 0;
   constructor() {
   }
 
   ngOnInit() {
-    this.player = new Player(0,300-50,0);
-    this.enemies = [];
+    this.V1n8L4nc = new Player(0,300-50,0);
+    this.hugoACasserLeGit = [];
     var canvas : any = document.getElementById('canvas');
     this.ctx = canvas.getContext('2d');
     setInterval(e => {
-      if(!this.dead) this.update();
+      if(!this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier) this.update();
     }, 10);
     setInterval(e => {
-      if(!this.dead) this.enemies.push(new Enemy(1100, 300-50, -5));
+      if(!this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier) this.hugoACasserLeGit.push(new Enemy(1100, 300-50, -5));
     }, 2000);
     canvas.addEventListener('keypress', e => {
       this.keyDown(e);
@@ -36,38 +36,38 @@ export class GameComponent implements OnInit {
       this.keyRelease(e);
     });
     canvas.addEventListener('click', e => {
-      if(this.dead) this.restart();
+      if(this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier) this.restart();
     });
     canvas.focus();
-    this.player.render(this.ctx);
+    this.V1n8L4nc.render(this.ctx);
   }
 
   keyDown(e){
-    if(!(this.player.y < 300-this.player.height)) this.player.vit = -5;
+    if(!(this.V1n8L4nc.y < 300-this.V1n8L4nc.height)) this.V1n8L4nc.vit = -5;
   }
 
   keyRelease(e){
-      this.player.vit = 5;
-      if(this.dead) this.restart();
+      this.V1n8L4nc.vit = 5;
+      if(this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier) this.restart();
   }
 
   update(){
-    this.player.y += this.player.vit;
-    this.player.y = this.constrain(this.player.y, 0, 300-this.player.height);
-    if(this.player.y == 0) this.player.vit = 5;
-    for(let i = 0; i < this.enemies.length; i++){
-      let e = this.enemies[i];
+    this.V1n8L4nc.y += this.V1n8L4nc.vit;
+    this.V1n8L4nc.y = this.constrain(this.V1n8L4nc.y, 0, 300-this.V1n8L4nc.height);
+    if(this.V1n8L4nc.y == 0) this.V1n8L4nc.vit = 5;
+    for(let i = 0; i < this.hugoACasserLeGit.length; i++){
+      let e = this.hugoACasserLeGit[i];
       e.x += e.vit;
-      if(e.x + e.width < 0) this.enemies.splice(i,1);
+      if(e.x + e.width < 0) this.hugoACasserLeGit.splice(i,1);
     }
-    this.dead = this.isCollision();
+    this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier = this.isCollision();
     this.render();
-    if(this.dead) this.gameover();
-    this.score++;
+    if(this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier) this.gameover();
+    this.CeMatinMoiEtAymericOnAEteAAuchanDeguiseEtOnADitBonjourAuPereNoel++;
   }
 
   gameover(){
-    if(this.score > this.bestScore) this.bestScore = this.score;
+    if(this.CeMatinMoiEtAymericOnAEteAAuchanDeguiseEtOnADitBonjourAuPereNoel > this.bestScore) this.bestScore = this.CeMatinMoiEtAymericOnAEteAAuchanDeguiseEtOnADitBonjourAuPereNoel;
     this.ctx.font = '24px serif';
     this.ctx.fillStyle = 'white';
     this.ctx.fillText('Perdu Rayman, pas de bras, pas de chocolat', 275, 50);
@@ -78,10 +78,10 @@ export class GameComponent implements OnInit {
   }
 
   restart(){
-    this.player = new Player(0,300-50,0);
-    this.enemies = [];
-    this.dead = false;
-    this.score = 0;
+    this.V1n8L4nc = new Player(0,300-50,0);
+    this.hugoACasserLeGit = [];
+    this.EnplusAymericEstDeguiseEnYoshiDepuisLeDebutDeLaNuitDeLInfoDoncFranchementSaFaitChier = false;
+    this.CeMatinMoiEtAymericOnAEteAAuchanDeguiseEtOnADitBonjourAuPereNoel = 0;
   }
 
   constrain(value : number, min : number, max : number){
@@ -91,9 +91,9 @@ export class GameComponent implements OnInit {
   }
 
   isCollision(){
-    for(let i = 0; i < this.enemies.length; i++){
-      let p = this.player;
-      let e = this.enemies[i];
+    for(let i = 0; i < this.hugoACasserLeGit.length; i++){
+      let p = this.V1n8L4nc;
+      let e = this.hugoACasserLeGit[i];
       if(p.x <= e.x + e.width &&
         p.x + p.width >= e.x &&
         p.y <= e.y + e.height &&
@@ -105,13 +105,13 @@ export class GameComponent implements OnInit {
   render(){
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(0, 0, 1100, 300);
-    this.player.render(this.ctx);
-    this.enemies.forEach(e => {
+    this.V1n8L4nc.render(this.ctx);
+    this.hugoACasserLeGit.forEach(e => {
       e.render(this.ctx);
     });
     this.ctx.fillStyle = 'white';
     this.ctx.font = '24px serif';
-    this.ctx.fillText('Score : ' + this.score, 465, 100);
+    this.ctx.fillText('Score : ' + this.CeMatinMoiEtAymericOnAEteAAuchanDeguiseEtOnADitBonjourAuPereNoel, 465, 100);
   }
 
 }
