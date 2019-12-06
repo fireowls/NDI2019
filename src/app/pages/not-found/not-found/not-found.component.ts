@@ -9,25 +9,21 @@ import { timer } from 'rxjs';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
-  nbr=404;
+  nbr = 404;
   position = 0;
   constructor() {
 
   }
+
   ngOnInit() {
-  //  timer(5).subscribe(val => this.changePosition() );
+  }
+  get404(){
+    return this.nbr;
   }
   decremente(){
-    this.nbr--;
+    this.nbr-=50;
   }
-  changePosition(){
-    this.position+= 1;
-    if(this.position>window.screen.width){
-      this.position = 0;
-    }
 
-    this.ngOnInit();
-  }
 
   getPositionLeft(){
     return this.position+'px';
