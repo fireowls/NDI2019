@@ -25,7 +25,7 @@ export class GameComponent implements OnInit {
       if(!this.dead) this.update();
     }, 10);
     setInterval(e => {
-      if(!this.dead) this.enemies.push(new Enemy(1000, 300-50, -2));
+      if(!this.dead) this.enemies.push(new Enemy(1000, 300-50, -5));
     }, 2000);
     canvas.addEventListener('keypress', e => {
       this.keyDown(e);
@@ -68,13 +68,14 @@ export class GameComponent implements OnInit {
   }
 
   isCollision(){
-    this.enemies.forEach(e => {
+    for(let i = 0; i < this.enemies.length; i++){
       let p = this.player;
+      let e = this.enemies[i];
       if(p.x <= e.x + e.width &&
         p.x + p.width >= e.x &&
         p.y <= e.y + e.height &&
         p.height + p.y >= e.y) return true;
-    });
+    }
     return false;
   }
 
