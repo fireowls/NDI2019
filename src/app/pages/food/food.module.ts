@@ -11,7 +11,8 @@ import { AnnonceModule } from 'src/app/annonce/annonce.module';
   imports: [
     CommonModule,
     AnnonceModule,
-    FoodRoutingModule
+    FoodRoutingModule,
+    FormsModule
   ]
 })
 export class FoodModule { }
