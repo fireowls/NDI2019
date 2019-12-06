@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoginPageComponent } from './auth/login-page/login-page.component';
 
 
 
@@ -7,6 +8,9 @@ import { CommonModule } from '@angular/common';
   declarations: [],
   imports: [
     CommonModule
+  ],
+  exports: [
+    LoginPageComponent
   ]
 })
 export class PagesModule { }

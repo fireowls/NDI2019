@@ -5,7 +5,6 @@ import { User, Auth } from '../user.model';
 import { Observable } from 'rxjs';
 import { first,map } from 'rxjs/operators';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
