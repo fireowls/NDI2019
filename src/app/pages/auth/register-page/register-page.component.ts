@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Auth } from '../user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -13,7 +14,7 @@ export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup;
 
 
-  constructor(private formBuilder:FormBuilder, private authService:AuthService) { }
+  constructor(private formBuilder:FormBuilder, private authService:AuthService, private router: Router) { }
 
   ngOnInit() {
     console.log("init register page");
@@ -49,6 +50,7 @@ export class RegisterPageComponent implements OnInit {
     this.authService.signup(email,password,auth).then(
       () => {
         console.log("création de compte reussi");
+        this.router.navigateByUrl('food')
       },
       (error) => {
         console.log(error);
