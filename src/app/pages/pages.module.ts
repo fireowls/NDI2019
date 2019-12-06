@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AuthModule } from './auth/auth.module';
+import { HomeModule } from './home/home.module';
+import { NotFoundModule } from './not-found/not-found.module';
+import { ProfilModule } from './profil/profil.module';
+import { PagesRoutingModules } from './pages-routing.module';
+import { FoodModule } from './food/food.module';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
+const modules = [
+  AuthModule,
+  HomeModule,
+  NotFoundModule,
+  ProfilModule,
+  FoodModule,
+  PagesRoutingModules
+];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [NavbarComponent],
+  imports: [ modules ],
+  exports: [ modules, NavbarComponent ]
 })
 export class PagesModule { }
