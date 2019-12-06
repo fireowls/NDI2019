@@ -8,6 +8,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
   declarations: [NotFoundComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NotFoundComponent
   ]
 })
 export class NotFoundModule { }
