@@ -1,12 +1,11 @@
-<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-    <!-- Card-->
-    <div *ngFor="let annonce of getListAnnonce()" class="card rounded shadow-sm border-0">
-        <div class="card-body p-4"><img [src]="annonce.imagePath" alt="" class="img-fluid d-block mx-auto mb-3">
-            <h5> <a href="#" class="text-dark">{{ annonce.name }}</a></h5>
-            <p class="small text-muted font-italic">{{ annonce.description }}</p>
-            <ul class="list-inline small">
-                <app-note [note]="service.getMoyenne(annonce)"></app-note>
-            </ul>
-        </div>
+<div class="card rounded shadow-sm border-0">
+    <div class="card-body p-4"><img [src]="annonce.imagePath" alt="" class="img-fluid d-block mx-auto mb-3">
+        <h5> 
+            <a (click)="emit()" class="text-dark">{{ annonce.name }}</a>
+        </h5>
+        <p class="small text-muted font-italic">{{ annonce.description }}</p>
+        <ul class="list-inline small">
+            <app-note [note]="service.getMoyenne(annonce)"></app-note>
+        </ul>
     </div>
 </div>

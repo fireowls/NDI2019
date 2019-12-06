@@ -44,8 +44,8 @@ export class AnnonceService {
     });
   }
 
-  getByType(type: AnnonceType): Observable<AnnonceType> {
-    return this.listAnnonce.pipe(map(item => item.filter(it => it.type === type))).source;
+  getByType(type: AnnonceType): Observable<AnnonceItem[]> {
+    return this.listAnnonce.pipe(map(item => item.filter(it => it.type === type)));
   }
 
   getMoyenne(annonce: AnnonceItem): number {

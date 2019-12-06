@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,8 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
     BrowserModule,
-    PagesModule
+    PagesModule,
+    AngularFireModule.initializeApp(environment.config)
   ],
   providers: [],
   bootstrap: [AppComponent]
