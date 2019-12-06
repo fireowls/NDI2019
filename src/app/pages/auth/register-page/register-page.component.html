@@ -1,1 +1,43 @@
-<p>register-page works!</p>
+<div class="login-dark">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" method="post">
+            <h2 class="sr-only">Register Form</h2>
+            <div class="illustration">
+                <i class="icon ion-ios-locked-outline"></i>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password" formControlName="password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="cpassword" placeholder="Confirm Password" formControlName="cpassword">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="nom" placeholder="Nom" formControlName="nom">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="prenom" placeholder="Prenom" formControlName="prenom">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="nrue" placeholder="n° Rue" formControlName="numRue">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="rue" placeholder="Rue" formControlName="rue">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="ville" placeholder="Ville" formControlName="ville">
+            </div>
+            <div class="form-group d-md-flex justify-content-md-center">
+                <select class="form-control" formControlName="civilite">
+                    <option value="homme" selected="">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit" [disabled]="registerForm.invalid">Register</button>
+            </div>
+            <a class="forgot" href="#">Forgot your email or password?</a>
+        </form>
+    </div>
