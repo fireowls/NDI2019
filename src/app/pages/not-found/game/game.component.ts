@@ -13,6 +13,8 @@ export class GameComponent implements OnInit {
   enemies : Enemy[];
   ctx : CanvasRenderingContext2D;
   dead : boolean = false;
+  score : number = 0;
+  bestScore : number = 0;
   constructor() {
   }
 
@@ -32,21 +34,21 @@ export class GameComponent implements OnInit {
     }, true);
     canvas.addEventListener('keyup', e => {
       this.keyRelease(e);
-    })
+    });
+    canvas.addEventListener('click', e => {
+      if(this.dead) this.restart();
+    });
     canvas.focus();
     this.player.render(this.ctx);
   }
 
   keyDown(e){
-    if(e.keyCode == 32){ //space
-      if(!(this.player.y < 300-this.player.height)) this.player.vit = -5;
-    }
+    if(!(this.player.y < 300-this.player.height)) this.player.vit = -5;
   }
 
   keyRelease(e){
-    if(e.keyCode == 32){ //space
       this.player.vit = 5;
-    }
+      if(this.dead) this.restart();
   }
 
   update(){
@@ -59,11 +61,24 @@ export class GameComponent implements OnInit {
     this.dead = this.isCollision();
     this.render();
     if(this.dead) this.gameover();
+    this.score++;
   }
 
   gameover(){
+    if(this.score > this.bestScore) this.bestScore = this.score;
     this.ctx.font = '48px serif';
-    this.ctx.fillText('Game Over', 400, 50);
+    this.ctx.fillStyle = 'white';
+    this.ctx.fillText('Game Over', 425, 50);
+    this.ctx.fillText('Restart', 460, 200);
+    this.ctx.font = '24px serif';
+    this.ctx.fillText('Meilleur Score : ' + this.bestScore, 10, 50);
+  }
+
+  restart(){
+    this.player = new Player(0,300-50,0);
+    this.enemies = [];
+    this.dead = false;
+    this.score = 0;
   }
 
   constrain(value : number, min : number, max : number){
@@ -91,6 +106,9 @@ export class GameComponent implements OnInit {
     this.enemies.forEach(e => {
       e.render(this.ctx);
     });
+    this.ctx.fillStyle = 'white';
+    this.ctx.font = '24px serif';
+    this.ctx.fillText('Score : ' + this.score, 475, 100);
   }
 
 }
