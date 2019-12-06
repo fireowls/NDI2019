@@ -55,9 +55,11 @@ export class GameComponent implements OnInit {
     this.player.y += this.player.vit;
     this.player.y = this.constrain(this.player.y, 0, 300-this.player.height);
     if(this.player.y == 0) this.player.vit = 5;
-    this.enemies.forEach(e => {
+    for(let i = 0; i < this.enemies.length; i++){
+      let e = this.enemies[i];
       e.x += e.vit;
-    });
+      if(e.x + e.width < 0) this.enemies.splice(i,1);
+    }
     this.dead = this.isCollision();
     this.render();
     if(this.dead) this.gameover();
@@ -66,12 +68,13 @@ export class GameComponent implements OnInit {
 
   gameover(){
     if(this.score > this.bestScore) this.bestScore = this.score;
-    this.ctx.font = '48px serif';
-    this.ctx.fillStyle = 'white';
-    this.ctx.fillText('Game Over', 425, 50);
-    this.ctx.fillText('Restart', 460, 200);
     this.ctx.font = '24px serif';
-    this.ctx.fillText('Meilleur Score : ' + this.bestScore, 10, 50);
+    this.ctx.fillStyle = 'white';
+    this.ctx.fillText('Perdu Rayman, pas de bras, pas de chocolat', 275, 50);
+    this.ctx.font = '48px serif';
+    this.ctx.fillText('Restart', 445, 200);
+    this.ctx.font = '24px serif';
+    this.ctx.fillText('Meilleur Score : ' + this.bestScore, 10, 70);
   }
 
   restart(){
@@ -108,7 +111,7 @@ export class GameComponent implements OnInit {
     });
     this.ctx.fillStyle = 'white';
     this.ctx.font = '24px serif';
-    this.ctx.fillText('Score : ' + this.score, 475, 100);
+    this.ctx.fillText('Score : ' + this.score, 465, 100);
   }
 
 }
