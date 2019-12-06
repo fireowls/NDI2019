@@ -1,0 +1,3 @@
+<div *ngFor="let annonce of annonces | async">
+    <app-annonce [annonce]="annonce" (itemSelected)="emit($event)" ></app-annonce>
+</div>
